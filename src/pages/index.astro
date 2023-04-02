@@ -17,16 +17,16 @@ import { Sprite } from "astro-icon";
     />
   </head>
   <body
-    class="relative flex items-center justify-center min-h-screen w-screen bg-gradient-to-br from-purple-500 to-purple-800 text-white p-4"
+    class="relative flex items-center justify-center min-h-screen w-screen bg-gradient-to-br from-purple-500 to-purple-800 text-white p-2 md:p-4 overflow-x-hidden"
   >
     <div class="absolute w-full h-full bg-slate-900 opacity-60 -z-50"></div>
-    <div class="max-w-prose flex flex-col gap-6">
+    <div class="max-w-sm md:max-w-prose flex flex-col gap-6">
       <div class="flex flex-col gap-2 lg:gap-3">
-        <div class="h-40 text-center">
+        <div class="h-36 md:h-40 text-center">
           <Logo />
         </div>
         <h1
-          class="text-xl font-bold text-center font-arvo"
+          class="text-lg md:text-xl font-bold text-center font-arvo"
           style="letter-spacing: 0.16em;"
         >
           Creating Powerful & Effecient Software Solutions
@@ -39,19 +39,19 @@ import { Sprite } from "astro-icon";
         >
           About Us
         </h1>
-        <p class="max-w-prose tracking-wide">
-          Valink Solutions is a small development firm based in Ontario, Canada
-          that specializes in software and backend development, with a focus on
-          utilizing data analysis and machine learning to optimize and improve
-          the cannabis industry. Our team is dedicated to developing custom
-          technologies and applications that help both consumers and businesses
-          make informed decisions. We work with data in ways that aim to boost
-          customers' knowledge about the products they consume and help
-          businesses gain insight into how their products are being consumed and
-          rated. We believe that through our cutting-edge technology, we can
-          help create a more transparent and efficient cannabis industry.
-          Contact us today to learn more about how we can help your business
-          succeed.
+        <p class="max-w-sm md:max-w-prose tracking-wide">
+          Based in Ontario, Canada, Valink Solutions is a software development firm that excels in backend development.
+          With a strong focus on innovation and client satisfaction, our team of skilled developers creates bespoke software solutions tailored to each client's unique needs.
+          But our passion doesn't stop there; we also dedicate our time and expertise to crafting software for personal use and projects aimed at bettering communities.
+        </p>
+        <p class="max-w-sm md:max-w-prose tracking-wide">
+          One of our noteworthy community-focused initiatives is <a class="font-bold hover:text-purple-500" href="http://github.com/Valink-Solutions/ChunkVault-Lite" target="_blank" rel="noopener noreferrer">ChunkVault</a>, a Minecraft world backup system that ensures the seamless preservation of players' virtual worlds.
+          This project is complemented by Teller, a user-friendly client that interfaces with ChunkVault to provide an intuitive experience for players.
+          Although both projects are currently in the early proof-of-concept stages, our commitment to developing technologies that resonate with users is unwavering.
+        </p>
+        <p class="max-w-sm md:max-w-prose tracking-wide">
+          At Valink Solutions, our goal is not only to build software that meets the demands of today's ever-evolving digital landscape but also to create solutions that enrich the lives of those who use them.
+          By embracing challenges and pushing the boundaries of what's possible, we continue to grow and innovate, ensuring that our clients, our users, and our communities all reap the benefits of our expertise.
         </p>
       </div>
 
