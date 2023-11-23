@@ -1,21 +1,28 @@
 ---
-import MainLayout from './mainLayout.astro';
+import MainLayout from "./mainLayout.astro";
 
 const { frontmatter, title, current_page } = Astro.props;
 ---
 
 <MainLayout title={frontmatter.title} current_page="blog">
-    <div class="p-6 mx-auto mb-10">
-        <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl max-w-none text-center lg:text-left">
-            <h1 class="text-3xl font-bold">{frontmatter.title}</h1>
-            <div class="text-gray-600 flex flex-col lg:flex-row justify-between">
-                <p>Published on: <time datetime={frontmatter.pubDate} class="font-medium">{frontmatter.pubDate.slice(0,10)}</time></p>
-                <p>Written by: <span class="font-medium">{frontmatter.author}</span></p>
-            </div>
-        </div>
-        <div class="divider"></div>
-        <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl max-w-none prose-h2:border-l-4 prose-h2:border-purple-400 prose-h2:pl-3">
-            <slot />
-        </div>
+  <div class="mx-auto mb-10 p-6">
+    <div
+      class="prose prose-sm max-w-none text-center sm:prose lg:prose-lg xl:prose-xl lg:text-left"
+    >
+      <h1 class="text-3xl font-bold">{frontmatter.title}</h1>
+      <div class="flex flex-col justify-between text-gray-600 lg:flex-row">
+        <p>
+          Published on: <time datetime={frontmatter.pubDate} class="font-medium"
+            >{frontmatter.pubDate.slice(0, 10)}</time>
+        </p>
+        <p>Written by: <span class="font-medium">{frontmatter.author}</span></p>
+      </div>
     </div>
+    <div class="divider"></div>
+    <div
+      class="prose prose-sm max-w-none sm:prose lg:prose-lg xl:prose-xl prose-h2:border-l-4 prose-h2:border-purple-400 prose-h2:pl-3"
+    >
+      <slot />
+    </div>
+  </div>
 </MainLayout>
