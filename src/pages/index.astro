@@ -1,120 +1,62 @@
 ---
-import Logo from "../components/logo.astro";
-import { Sprite } from "astro-icon";
+import MainLayout from '../layouts/mainLayout.astro';
+const allPosts = await Astro.glob('../pages/posts/*.md');
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Valink Solutions</title>
-    <link rel="stylesheet" href="/styles/global.css" />
-  </head>
-  <body
-    class="relative flex min-h-screen w-screen items-center justify-center overflow-x-hidden bg-gradient-to-br from-purple-500 to-purple-800 p-2 text-white md:p-4"
-  >
-    <div class="absolute -z-50 h-full w-full bg-slate-900 opacity-60"></div>
-    <div class="flex max-w-sm flex-col gap-6 md:max-w-prose">
-      <div class="flex flex-col gap-2 lg:gap-3">
-        <div class="h-36 text-center md:h-40">
-          <Logo />
+<MainLayout title="Home" current_page="home">
+    <!-- About Section -->
+    <section id="about" class="py-8 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-4 border-l-4 border-purple-400 pl-2">About Us</h2>
+            <p class="mb-4">
+                At Valink Solutions, we pride ourselves on being a hub of innovation and respect for tradition. Our team, comprising passionate designers, registered nurses, and skilled developers, is dedicated to bringing transformative technology and critical infrastructure to Indigenous communities. We are at the forefront of using Rust for developing advanced, memory-efficient, and environmentally friendly technology solutions.
+            </p>
+            
+            <p class="mb-4">
+                Our mission extends beyond mere technology deployment. We are deeply invested in educating and training Indigenous communities in IT and cybersecurity. This includes specialized training in technical security measures like physical security keys from Yubico, ensuring communities are equipped to safeguard their digital and physical environments effectively.
+            </p>
+            
+            <p class="mb-4">
+                Our educational commitment encompasses a broad spectrum, from school-level educational materials to professional consulting services in network configuration, administration, and custom software development, focusing on backend APIs. Our graphic design team, specializing in sports logos and digital art, brings a unique aesthetic vision to our diverse array of projects.
+            </p>
+            
+            <p class="mb-4">
+                With a medical professional as part of our team, we ensure all our initiatives comply with the highest health standards while contributing to the holistic well-being of Aboriginal communities. We actively advocate for the integration of traditional medicine and practices in our projects, reflecting our dedication to cultural sensitivity and community healing.
+            </p>
+            
+            <p class="mb-4">
+                At Valink Solutions, we are not just a technology company; we are educators and advocates. We believe in the power of knowledge transfer, enabling communities to become self-sufficient and proficient in managing and utilizing the technology we provide. We are committed to lobbying for the return of traditional medicines and offering our services, often at reduced rates or pro bono, to support Aboriginal communities.
+            </p>
+            
+            <p class="mb-4">
+                We invite you to join us in this journey of technological advancement and cultural respect. If you have any questions or wish to learn more about how we can assist your community, please do not hesitate to contact us. Our team at Valink Solutions is eager to share our expertise and contribute to a future where tradition and technology coexist harmoniously for the betterment of all communities.
+            </p>                      
         </div>
-        <h1
-          class="font-arvo text-center text-lg font-bold md:text-xl"
-          style="letter-spacing: 0.16em;"
-        >
-          Creating Powerful & Effecient Software Solutions
-        </h1>
-      </div>
+    </section>
 
-      <div class="flex flex-col gap-2 rounded bg-slate-900 bg-opacity-25 p-4">
-        <h1
-          class="font-arvo border-l-4 border-purple-500 pl-3 text-left text-2xl font-black"
-        >
-          About Us
-        </h1>
-        <p class="max-w-sm tracking-wide md:max-w-prose">
-          Based in Ontario, Canada, Valink Solutions is a software development
-          firm that excels in backend development. With a strong focus on
-          innovation and client satisfaction, our team of skilled developers
-          creates bespoke software solutions tailored to each client's unique
-          needs. But our passion doesn't stop there; we also dedicate our time
-          and expertise to crafting software for personal use and projects aimed
-          at bettering communities.
-        </p>
-        <p class="max-w-sm tracking-wide md:max-w-prose">
-          One of our noteworthy community-focused initiatives is <a
-            class="font-bold hover:text-purple-500"
-            href="http://github.com/Valink-Solutions/ChunkVault-Lite"
-            target="_blank"
-            rel="noopener noreferrer">ChunkVault</a
-          >, a Minecraft world backup system that ensures the seamless
-          preservation of players' virtual worlds. This project is complemented
-          by Teller, a user-friendly client that interfaces with ChunkVault to
-          provide an intuitive experience for players. Although both projects
-          are currently in the early proof-of-concept stages, our commitment to
-          developing technologies that resonate with users is unwavering.
-        </p>
-        <p class="max-w-sm tracking-wide md:max-w-prose">
-          At Valink Solutions, our goal is not only to build software that meets
-          the demands of today's ever-evolving digital landscape but also to
-          create solutions that enrich the lives of those who use them. By
-          embracing challenges and pushing the boundaries of what's possible, we
-          continue to grow and innovate, ensuring that our clients, our users,
-          and our communities all reap the benefits of our expertise.
-        </p>
-      </div>
-
-      <div class="flex flex-col gap-2 rounded bg-slate-900 bg-opacity-25 p-4">
-        <h1
-          class="font-arvo border-l-4 border-purple-500 pl-3 text-left text-2xl font-black"
-        >
-          Get In Touch
-        </h1>
-        <div
-          class="flex flex-row justify-around rounded bg-slate-900 bg-opacity-50 p-4"
-        >
-          <Sprite.Provider>
-            <a
-              href="https://twitter.com/valink_io"
-              target="_blank"
-              class="text-2xl font-bold hover:text-purple-500"
-            >
-              <Sprite pack="mdi" name="twitter-box" size="60px" />
-            </a>
-            <a
-              href="https://facebook.com/valinksolutions"
-              target="_blank"
-              class="text-2xl font-bold hover:text-purple-500"
-            >
-              <Sprite pack="mdi" name="facebook-box" size="60px" />
-            </a>
-            <a
-              href="https://www.instagram.com/valink.io/"
-              target="_blank"
-              class="text-2xl font-bold hover:text-purple-500"
-            >
-              <Sprite pack="mdi" name="instagram" size="60px" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/valink-solutions/"
-              target="_blank"
-              class="text-2xl font-bold hover:text-purple-500"
-            >
-              <Sprite pack="mdi" name="linkedin-box" size="60px" />
-            </a>
-            <a
-              href="mailto:jake@valink.io"
-              target="_blank"
-              class="text-2xl font-bold hover:text-purple-500"
-            >
-              <Sprite pack="mdi" name="email" size="60px" />
-            </a>
-          </Sprite.Provider>
+    <!-- Blog Section -->
+    <section id="blog" class="flex-grow py-8 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-4 border-l-4 border-purple-400 pl-2">Blog Posts</h2>
+            <ul class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {allPosts.map((post) => (
+                    <li class="card w-full mb-4 p-4 shadow-lg">
+                        <a href={post.url} class="no-underline">
+                            <h2 class="card-title text-xl font-bold mb-2">        
+                                {post.frontmatter.title}
+                            </h2>
+                            <p class=" opacity-40 text-sm">
+                                Published on {new Date(post.frontmatter.pubDate).toLocaleDateString()} by {post.frontmatter.author}
+                            </p>
+                            <div class="divider"></div>
+                            <p>{post.frontmatter.description}</p>
+                            <div class="card-actions justify-end">
+                                <a href={post.url} class="btn btn-primary">Read More</a>
+                            </div>
+                        </a>
+                    </li>
+                ))}
+            </ul>
         </div>
-      </div>
-    </div>
-  </body>
-</html>
+    </section>
+</MainLayout>
