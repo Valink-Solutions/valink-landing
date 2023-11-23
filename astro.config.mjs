@@ -5,7 +5,7 @@ import tailwind from "@astrojs/tailwind";
 import autoprefixer from "autoprefixer";
 
 // https://astro.build/config
-import cloudflare from "@astrojs/cloudflare";
+// import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,6 +21,6 @@ export default defineConfig({
       ],
     },
   },
-  output: "server",
-  adapter: cloudflare()
+  // output: "server",
+  // adapter: cloudflare()
 });
