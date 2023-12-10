@@ -1,50 +1,16 @@
 ---
-import Logo from "../components/logo.astro";
+import Header from "../components/header.astro";
 import "../styles/global.postcss";
 import { Sprite } from "astro-icon";
 
 const { title, current_page } = Astro.props;
 ---
 
-<script>
-  let burger: Element = document.querySelector(".navbar-burger") as Element;
-  let menu: Element = document.querySelector(".navbar-menu") as Element;
-
-  burger.addEventListener("click", function () {
-    menu.classList.toggle("hidden");
-  });
-</script>
-
-<script>
-  // @ts-nocheck
-  let theme = localStorage.getItem("theme");
-  if (!theme) {
-    theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "neubrutalism-dark"
-      : "neubrutalism";
-  }
-  document.body.dataset.theme = theme;
-
-  const themeSelector = document.querySelector("#themeSelector");
-  themeSelector.value = theme;
-
-  themeSelector.addEventListener("change", function () {
-    theme = this.value;
-    document.body.dataset.theme = theme;
-    localStorage.setItem("theme", theme);
-  });
-</script>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Valink Solutions | {title}</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/daisyui/dist/full.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;200;300;400;500;600;700;800&display=swap");
       html,
@@ -56,60 +22,7 @@ const { title, current_page } = Astro.props;
   <body data-theme="neubrutalism" class="flex h-screen flex-col bg-base-200">
     <Sprite.Provider>
       <!-- Header Section -->
-      <header class="card bg-base-100 text-base-content">
-        <div class="container mx-auto grid grid-cols-3 p-4">
-          <a href="/" class="w-50 col-span-1 col-start-1">
-            <Logo />
-          </a>
-          <div
-            class="col-span-1 col-start-3 flex items-center justify-end text-right lg:hidden"
-          >
-            <button class="navbar-burger fill-base-content">
-              <Sprite
-                pack="mdi"
-                name="menu"
-                class="h-10 w-10 text-base-content"
-              />
-            </button>
-          </div>
-          <nav
-            class="navbar-menu col-span-3 row-start-2 mt-4 hidden items-center justify-end lg:col-span-2 lg:col-start-2 lg:row-start-1 lg:mt-0 lg:flex"
-          >
-            <div class="flex flex-col items-center gap-4 lg:flex-row">
-              <a
-                href="/"
-                class={`btn w-full lg:max-w-[100px] ${
-                  current_page === "home" ? "btn-primary" : ""
-                }`}>Home</a
-              >
-              <a
-                href="/projects"
-                class={`btn w-full lg:max-w-[100px] ${
-                  current_page === "projects" ? "btn-primary" : ""
-                }`}>Projects</a
-              >
-              <a
-                href="/hardware"
-                class={`btn w-full lg:max-w-[100px] ${
-                  current_page === "hardware" ? "btn-primary" : ""
-                }`}>Hardware</a
-              >
-              <a
-                href="/blog"
-                class={`btn w-full lg:max-w-[100px] ${
-                  current_page === "blog" ? "btn-primary" : ""
-                }`}>Blog</a
-              >
-              <div class="flex w-full flex-row lg:w-[170px]">
-                <select id="themeSelector" class="select w-full">
-                  <option value="neubrutalism">Light</option>
-                  <option value="neubrutalism-dark">Dark</option>
-                </select>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </header>
+      <Header current_page={current_page} />
 
       <div class="card flex flex-grow flex-col bg-base-100 text-base-content">
         <slot />

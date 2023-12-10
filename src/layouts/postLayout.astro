@@ -13,7 +13,8 @@ const { frontmatter, title, current_page } = Astro.props;
       <div class="flex flex-col justify-between text-gray-600 lg:flex-row">
         <p>
           Published on: <time datetime={frontmatter.pubDate} class="font-medium"
-            >{frontmatter.pubDate.slice(0, 10)}</time>
+            >{frontmatter.pubDate.slice(0, 10)}</time
+          >
         </p>
         <p>Written by: <span class="font-medium">{frontmatter.author}</span></p>
       </div>

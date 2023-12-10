@@ -1,3 +1,9 @@
+const path = require("path");
+
 module.exports = {
-  plugins: [require("autoprefixer"), require("cssnano")],
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+    cssnano: {},
+  },
 };
