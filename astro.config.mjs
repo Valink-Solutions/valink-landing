@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, squooshImageService } from 'astro/config';
 
 // https://astro.build/config
 import tailwind from "@astrojs/tailwind";
@@ -9,6 +9,9 @@ import autoprefixer from "autoprefixer";
 
 // https://astro.build/config
 export default defineConfig({
+  image: {
+    service: squooshImageService(),
+  },
   integrations: [
     tailwind({
       applyBaseStyles: false,
