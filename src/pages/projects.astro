@@ -1,5 +1,7 @@
 ---
 import MainLayout from "../layouts/mainLayout.astro";
+import { Image } from "astro:assets";
+import ChunkVaultBanner from "../images/chunkvaultbanner.jpg";
 ---
 
 <MainLayout title="Projects" current_page="projects">
@@ -7,6 +9,35 @@ import MainLayout from "../layouts/mainLayout.astro";
     <h1 class="border-l-4 border-purple-400 pl-2 text-2xl font-semibold">
       Our Projects
     </h1>
-    <h2 class="w-full text-center text-2xl font-semibold">Coming Soon.</h2>
+    <ul class="flex grid-cols-2 flex-col lg:grid">
+      <li class="card">
+        <figure>
+          <Image
+            src={ChunkVaultBanner}
+            alt="ChunkVault a minecraft world backup and viewing tool."
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title -my-4">
+            ChunkVault - A Minecraft Backup Ecosystem
+          </h2>
+          <div class="divider"></div>
+          <p>
+            ChunkVault, an open-source creation by the company's owner,
+            comprises Teller (Desktop) for Minecraft world backup and
+            restoration and Vault (Backend), an open-source server facilitating
+            saving to diverse locations. This approach fosters transparency and
+            community collaboration in developing a robust solution for users.
+          </p>
+          <div class="card-actions justify-end">
+            <a
+              href="https://docs.chunkvault.com/teller/01-getting-started/"
+              target="_blank"
+              class="btn btn-primary">See More</a
+            >
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </MainLayout>
