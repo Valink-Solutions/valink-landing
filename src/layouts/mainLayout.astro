@@ -8,41 +8,49 @@ const { title, current_page } = Astro.props;
 
 <html lang="en">
   <head>
+    <script is:inline>
+      // ☝️ This script prevent the FART effect.
+      if (localStorage.getItem("theme") === null) {
+        document.documentElement.setAttribute("data-theme", "light");
+      } else
+        document.documentElement.setAttribute(
+          "data-theme",
+          localStorage.getItem("theme")
+        );
+    </script>
+    <script>
+      import { themeChange } from "theme-change";
+      themeChange();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Valink Solutions | {title}</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;200;300;400;500;600;700;800&display=swap");
-      html,
-      body {
-        font-family: "Martian Mono", monospace;
-      }
-    </style>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
-  <body data-theme="neubrutalism" class="flex h-screen flex-col bg-base-200">
+  <body class="flex h-screen flex-col bg-base-100">
     <Sprite.Provider>
       <!-- Header Section -->
       <Header current_page={current_page} />
 
-      <div class="card flex flex-grow flex-col bg-base-100 text-base-content">
+      <div class="flex flex-grow flex-col bg-base-100 text-base-content">
         <slot />
       </div>
 
       <!-- Footer Section -->
-      <footer class="card bg-base-100 p-4 text-base-content">
+      <footer class="bg-base-100 p-4 text-base-content">
         <div
           class="container mx-auto flex flex-col-reverse items-center justify-between gap-4 lg:flex-row"
         >
           <blockquote
             class="order-1 flex-1 text-center opacity-75 lg:order-2 lg:text-right"
           >
-            <p class="italic">
+            <p class="font-bold italic">
               "Empowering Aboriginal communities through holistic health and
               healing."
             </p>
           </blockquote>
           <p class="flex-1 text-center lg:order-1 lg:mt-0 lg:text-left">
-            © 2023 Valink Solutions Ltd.
+            © {new Date().getFullYear()} Valink Solutions Ltd.
           </p>
         </div>
       </footer>

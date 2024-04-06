@@ -4,101 +4,107 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
 ---
 
 <MainLayout title="Home" current_page="home">
-  <!-- About Section -->
-  <section id="about" class="px-4 py-8">
-    <div class="container mx-auto">
-      <h2 class="mb-4 border-l-4 border-purple-400 pl-2 text-2xl font-bold">
-        About Us
-      </h2>
-      <p class="mb-4">
-        At Valink Solutions, we pride ourselves on being a hub of innovation and
-        respect for tradition. Our team, comprising passionate designers,
-        registered nurses, and skilled developers, is dedicated to bringing
-        transformative technology and critical infrastructure to Indigenous
-        communities. We are at the forefront of using Rust for developing
-        advanced, memory-efficient, and environmentally friendly technology
-        solutions.
-      </p>
+  <div class="container mx-auto flex flex-col gap-4 bg-base-100 p-4">
+    <!-- About Section -->
+    <section id="about" class="">
+      <div class="container mx-auto">
+        <h2 class="mb-4 border-l-4 border-primary pl-2 text-2xl font-bold">
+          About Us
+        </h2>
+        <p class="mb-4">
+          At Valink Solutions, we pride ourselves on being a hub of innovation
+          and respect for tradition. Our team, comprising passionate designers,
+          registered nurses, and skilled developers, is dedicated to bringing
+          transformative technology and critical infrastructure to Indigenous
+          communities. We are at the forefront of using Rust for developing
+          advanced, memory-efficient, and environmentally friendly technology
+          solutions.
+        </p>
 
-      <p class="mb-4">
-        Our mission extends beyond mere technology deployment. We are deeply
-        invested in educating and training Indigenous communities in IT and
-        cybersecurity. This includes specialized training in technical security
-        measures like physical security keys from Yubico, ensuring communities
-        are equipped to safeguard their digital and physical environments
-        effectively.
-      </p>
+        <p class="mb-4">
+          Our mission extends beyond mere technology deployment. We are deeply
+          invested in educating and training Indigenous communities in IT and
+          cybersecurity. This includes specialized training in technical
+          security measures like physical security keys from Yubico, ensuring
+          communities are equipped to safeguard their digital and physical
+          environments effectively.
+        </p>
 
-      <p class="mb-4">
-        Our educational commitment encompasses a broad spectrum, from
-        school-level educational materials to professional consulting services
-        in network configuration, administration, and custom software
-        development, focusing on backend APIs. Our graphic design team,
-        specializing in sports logos and digital art, brings a unique aesthetic
-        vision to our diverse array of projects.
-      </p>
+        <p class="mb-4">
+          Our educational commitment encompasses a broad spectrum, from
+          school-level educational materials to professional consulting services
+          in network configuration, administration, and custom software
+          development, focusing on backend APIs. Our graphic design team,
+          specializing in sports logos and digital art, brings a unique
+          aesthetic vision to our diverse array of projects.
+        </p>
 
-      <p class="mb-4">
-        With a medical professional as part of our team, we ensure all our
-        initiatives comply with the highest health standards while contributing
-        to the holistic well-being of Aboriginal communities. We actively
-        advocate for the integration of traditional medicine and practices in
-        our projects, reflecting our dedication to cultural sensitivity and
-        community healing.
-      </p>
+        <p class="mb-4">
+          With a medical professional as part of our team, we ensure all our
+          initiatives comply with the highest health standards while
+          contributing to the holistic well-being of Aboriginal communities. We
+          actively advocate for the integration of traditional medicine and
+          practices in our projects, reflecting our dedication to cultural
+          sensitivity and community healing.
+        </p>
 
-      <p class="mb-4">
-        At Valink Solutions, we are not just a technology company; we are
-        educators and advocates. We believe in the power of knowledge transfer,
-        enabling communities to become self-sufficient and proficient in
-        managing and utilizing the technology we provide. We are committed to
-        lobbying for the return of traditional medicines and offering our
-        services, often at reduced rates or pro bono, to support Aboriginal
-        communities.
-      </p>
+        <p class="mb-4">
+          At Valink Solutions, we are not just a technology company; we are
+          educators and advocates. We believe in the power of knowledge
+          transfer, enabling communities to become self-sufficient and
+          proficient in managing and utilizing the technology we provide. We are
+          committed to lobbying for the return of traditional medicines and
+          offering our services, often at reduced rates or pro bono, to support
+          Aboriginal communities.
+        </p>
 
-      <p class="mb-4">
-        We invite you to join us in this journey of technological advancement
-        and cultural respect. If you have any questions or wish to learn more
-        about how we can assist your community, please do not hesitate to
-        contact us. Our team at Valink Solutions is eager to share our expertise
-        and contribute to a future where tradition and technology coexist
-        harmoniously for the betterment of all communities.
-      </p>
-    </div>
-  </section>
+        <p class="mb-4">
+          We invite you to join us in this journey of technological advancement
+          and cultural respect. If you have any questions or wish to learn more
+          about how we can assist your community, please do not hesitate to
+          contact us. Our team at Valink Solutions is eager to share our
+          expertise and contribute to a future where tradition and technology
+          coexist harmoniously for the betterment of all communities.
+        </p>
+      </div>
+    </section>
 
-  <!-- Blog Section -->
-  <section id="blog" class="flex-grow px-4 py-8">
-    <div class="container mx-auto">
-      <h2 class="mb-4 border-l-4 border-purple-400 pl-2 text-2xl font-bold">
-        Blog Posts
-      </h2>
-      <ul class="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        {
-          allPosts.map((post) => (
-            <li class="card mb-4 w-full p-4 shadow-lg">
-              <a href={post.url} class="no-underline">
-                <h2 class="card-title mb-2 text-xl font-bold">
-                  {post.frontmatter.title}
-                </h2>
-                <p class=" text-sm opacity-40">
-                  Published on{" "}
-                  {new Date(post.frontmatter.pubDate).toLocaleDateString()} by{" "}
-                  {post.frontmatter.author}
-                </p>
-                <div class="divider" />
-                <p>{post.frontmatter.description}</p>
-                <div class="card-actions justify-end">
-                  <a href={post.url} class="btn btn-primary">
-                    Read More
-                  </a>
-                </div>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
+    <!-- Blog Section -->
+    <section id="blog" class="flex-grow bg-base-100">
+      <div class="container mx-auto bg-base-100">
+        <h2 class="mb-4 border-l-4 border-primary pl-2 text-2xl font-bold">
+          Blog Posts
+        </h2>
+        <ul class="grid grid-cols-1 gap-6 bg-base-100 lg:grid-cols-2">
+          {
+            allPosts.map((post) => (
+              <li class="card mb-4 w-full bg-neutral p-4">
+                <a
+                  href={post.url}
+                  class="no-underline"
+                  aria-label={post.frontmatter.title}
+                >
+                  <h2 class="card-title mb-2 text-xl font-bold">
+                    {post.frontmatter.title}
+                  </h2>
+                  <p class=" text-sm opacity-40">
+                    Published on{" "}
+                    {new Date(post.frontmatter.pubDate).toLocaleDateString()} by{" "}
+                    {post.frontmatter.author}
+                  </p>
+                  <div class="divider" />
+                  <p>{post.frontmatter.description}</p>
+                  <div class="card-actions justify-end">
+                    <a href={post.url} class="btn btn-primary">
+                      Read More
+                    </a>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </div>
 </MainLayout>
