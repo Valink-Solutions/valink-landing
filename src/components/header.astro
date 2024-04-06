@@ -7,10 +7,19 @@ const { current_page } = Astro.props;
 
 <script>
   let burger: Element = document.querySelector(".navbar-burger") as Element;
+  let close: Element = document.querySelector(".navbar-close") as Element;
   let menu: Element = document.querySelector(".navbar-menu") as Element;
 
   burger.addEventListener("click", function () {
     menu.classList.toggle("hidden");
+    burger.classList.toggle("hidden");
+    close.classList.toggle("hidden");
+  });
+
+  close.addEventListener("click", function () {
+    menu.classList.toggle("hidden");
+    close.classList.toggle("hidden");
+    burger.classList.toggle("hidden");
   });
 </script>
 
@@ -19,8 +28,8 @@ const { current_page } = Astro.props;
   let theme = localStorage.getItem("theme");
   if (!theme) {
     theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "neubrutalism-dark"
-      : "neubrutalism";
+      ? "dark"
+      : "light";
   }
   document.body.dataset.theme = theme;
 
@@ -34,8 +43,8 @@ const { current_page } = Astro.props;
   });
 </script>
 
-<header class="card bg-base-100 text-base-content">
-  <div class="container mx-auto grid grid-cols-3 p-4">
+<header class="text-base-content">
+  <div client:visable class="container mx-auto grid grid-cols-3 p-4">
     <a href="/" class="col-span-1 col-start-1 w-52">
       <Logo />
     </a>
@@ -43,7 +52,10 @@ const { current_page } = Astro.props;
       class="col-span-1 col-start-3 flex items-center justify-end text-right lg:hidden"
     >
       <button class="navbar-burger fill-base-content">
-        <Sprite pack="mdi" name="menu" class="h-10 w-10 text-base-content" />
+        <Sprite name="mdi:menu" class="h-6 w-6" />
+      </button>
+      <button class="navbar-close hidden fill-base-content">
+        <Sprite name="mdi:close" class="h-6 w-6" />
       </button>
     </div>
     <nav
@@ -75,9 +87,9 @@ const { current_page } = Astro.props;
           }`}>Services</a
         >
         <div class="flex w-full flex-row lg:w-[170px]">
-          <select id="themeSelector" class="select w-full">
-            <option value="neubrutalism">Light</option>
-            <option value="neubrutalism-dark">Dark</option>
+          <select id="themeSelector" class="select w-full bg-base-200">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
           </select>
         </div>
       </div>
