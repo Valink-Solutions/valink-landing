@@ -8,7 +8,7 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
     <!-- About Section -->
     <section id="about" class="">
       <div class="container mx-auto">
-        <h2 class="mb-4 border-l-4 border-purple-400 pl-2 text-2xl font-bold">
+        <h2 class="mb-4 border-l-4 border-primary pl-2 text-2xl font-bold">
           About Us
         </h2>
         <p class="mb-4">
@@ -72,14 +72,18 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
     <!-- Blog Section -->
     <section id="blog" class="flex-grow bg-base-100">
       <div class="container mx-auto bg-base-100">
-        <h2 class="mb-4 border-l-4 border-purple-400 pl-2 text-2xl font-bold">
+        <h2 class="mb-4 border-l-4 border-primary pl-2 text-2xl font-bold">
           Blog Posts
         </h2>
         <ul class="grid grid-cols-1 gap-6 bg-base-100 lg:grid-cols-2">
           {
             allPosts.map((post) => (
               <li class="card mb-4 w-full bg-neutral p-4">
-                <a href={post.url} class="no-underline">
+                <a
+                  href={post.url}
+                  class="no-underline"
+                  aria-label={post.frontmatter.title}
+                >
                   <h2 class="card-title mb-2 text-xl font-bold">
                     {post.frontmatter.title}
                   </h2>

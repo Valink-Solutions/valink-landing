@@ -8,12 +8,26 @@ const { title, current_page } = Astro.props;
 
 <html lang="en">
   <head>
+    <script is:inline>
+      // ☝️ This script prevent the FART effect.
+      if (localStorage.getItem("theme") === null) {
+        document.documentElement.setAttribute("data-theme", "light");
+      } else
+        document.documentElement.setAttribute(
+          "data-theme",
+          localStorage.getItem("theme")
+        );
+    </script>
+    <script>
+      import { themeChange } from "theme-change";
+      themeChange();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Valink Solutions | {title}</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
-  <body data-theme="light" class="flex h-screen flex-col bg-base-100">
+  <body class="flex h-screen flex-col bg-base-100">
     <Sprite.Provider>
       <!-- Header Section -->
       <Header current_page={current_page} />

@@ -23,29 +23,9 @@ const { current_page } = Astro.props;
   });
 </script>
 
-<script>
-  // @ts-nocheck
-  let theme = localStorage.getItem("theme");
-  if (!theme) {
-    theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  }
-  document.body.dataset.theme = theme;
-
-  const themeSelector = document.querySelector("#themeSelector");
-  themeSelector.value = theme;
-
-  themeSelector.addEventListener("change", function () {
-    theme = this.value;
-    document.body.dataset.theme = theme;
-    localStorage.setItem("theme", theme);
-  });
-</script>
-
 <header class="text-base-content">
   <div client:visable class="container mx-auto grid grid-cols-3 p-4">
-    <a href="/" class="col-span-1 col-start-1 w-52">
+    <a href="/" class="col-span-1 col-start-1 w-52" aria-label="Home">
       <Logo />
     </a>
     <div
@@ -87,7 +67,7 @@ const { current_page } = Astro.props;
           }`}>Services</a
         >
         <div class="flex w-full flex-row lg:w-[170px]">
-          <select id="themeSelector" class="select w-full bg-base-200">
+          <select data-choose-theme class="select w-full bg-base-200">
             <option value="light">Light</option>
             <option value="dark">Dark</option>
           </select>
