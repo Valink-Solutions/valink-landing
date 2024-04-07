@@ -5,6 +5,35 @@ const { frontmatter, title, current_page } = Astro.props;
 ---
 
 <MainLayout title={frontmatter.title} current_page="blog">
+  <meta name="description" content={frontmatter.description} />
+
+  <!-- Facebook Meta Tags -->
+  <meta
+    property="og:url"
+    content=`https://valink.io/posts/${frontmatter.slug}`
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content=`Valink Solutions | ${title}` />
+  <meta property="og:description" content={frontmatter.description} />
+  <meta
+    property="og:image"
+    content="https://opengraph.b-cdn.net/production/documents/d89ec48c-482f-40d5-b050-b7503cf86a52.jpg?token=WY_dSKlOQlWI9qLTpD0BBuXApUB_Y5CxoKCCLbVCRCo&height=400&width=1200&expires=33248451307"
+  />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content="valink.io" />
+  <meta
+    property="twitter:url"
+    content=`https://valink.io/posts/${frontmatter.slug}`
+  />
+  <meta name="twitter:title" content=`Valink Solutions | ${title}` />
+  <meta name="twitter:description" content={frontmatter.description} />
+  <meta
+    name="twitter:image"
+    content="https://opengraph.b-cdn.net/production/documents/d89ec48c-482f-40d5-b050-b7503cf86a52.jpg?token=WY_dSKlOQlWI9qLTpD0BBuXApUB_Y5CxoKCCLbVCRCo&height=400&width=1200&expires=33248451307"
+  />
+
   <div class="mx-auto mb-10 p-6">
     <div
       class="prose prose-sm max-w-none text-center sm:prose lg:prose-lg xl:prose-xl prose-h1:mb-4 prose-p:my-2 lg:text-left"
