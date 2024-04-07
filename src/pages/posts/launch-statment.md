@@ -5,6 +5,7 @@ pubDate: "2023-03-15"
 author: "JakePIXL"
 layout: "../../layouts/postLayout.astro"
 tags: ["rust", "tradition", "advocation", "change"]
+slug: "launch-statement"
 ---
 
 ## Introduction

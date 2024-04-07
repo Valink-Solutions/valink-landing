@@ -3,7 +3,7 @@ import Header from "../components/header.astro";
 import "../styles/global.postcss";
 import { Sprite } from "astro-icon";
 
-const { title, current_page } = Astro.props;
+const { title, current_page, description = null, url = "" } = Astro.props;
 ---
 
 <html lang="en">
@@ -26,6 +26,37 @@ const { title, current_page } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Valink Solutions | {title}</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta
+      name="description"
+      content={description || "Valink Solutions: Fusing Tradition with Innovation for Empowered Communities. We bring cutting-edge technology and critical infrastructure to Indigenous communities while preserving cultural heritage. Our mission includes education in IT and cybersecurity and advocating for the integration of traditional medicine. Join us in advancing technology with respect for tradition."}
+    />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content=`https://valink.io/${url}` />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content=`Valink Solutions | ${title}` />
+    <meta
+      property="og:description"
+      content={description || "Valink Solutions: Fusing Tradition with Innovation for Empowered Communities. We bring cutting-edge technology and critical infrastructure to Indigenous communities while preserving cultural heritage. Our mission includes education in IT and cybersecurity and advocating for the integration of traditional medicine. Join us in advancing technology with respect for tradition."}
+    />
+    <meta
+      property="og:image"
+      content="https://opengraph.b-cdn.net/production/documents/d89ec48c-482f-40d5-b050-b7503cf86a52.jpg?token=WY_dSKlOQlWI9qLTpD0BBuXApUB_Y5CxoKCCLbVCRCo&height=400&width=1200&expires=33248451307"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="valink.io" />
+    <meta property="twitter:url" content=`https://valink.io/${url}` />
+    <meta name="twitter:title" content=`Valink Solutions | ${title}` />
+    <meta
+      name="twitter:description"
+      content={description || "Valink Solutions: Fusing Tradition with Innovation for Empowered Communities. We bring cutting-edge technology and critical infrastructure to Indigenous communities while preserving cultural heritage. Our mission includes education in IT and cybersecurity and advocating for the integration of traditional medicine. Join us in advancing technology with respect for tradition."}
+    />
+    <meta
+      name="twitter:image"
+      content={description || "Valink Solutions: Fusing Tradition with Innovation for Empowered Communities. We bring cutting-edge technology and critical infrastructure to Indigenous communities while preserving cultural heritage. Our mission includes education in IT and cybersecurity and advocating for the integration of traditional medicine. Join us in advancing technology with respect for tradition."}
+    />
   </head>
   <body class="flex h-screen flex-col bg-base-100">
     <Sprite.Provider>
@@ -45,12 +76,11 @@ const { title, current_page } = Astro.props;
             class="order-1 flex-1 text-center opacity-75 lg:order-2 lg:text-right"
           >
             <p class="font-bold italic">
-              "Empowering Aboriginal communities through holistic health and
-              healing."
+              "Fusing Tradition with Innovation for Empowered Communities"
             </p>
           </blockquote>
           <p class="flex-1 text-center lg:order-1 lg:mt-0 lg:text-left">
-            © {new Date().getFullYear()} Valink Solutions Ltd.
+            © {new Date().getFullYear()} Valink Solutions Ltd. All rights reserved.
           </p>
         </div>
       </footer>

@@ -1,6 +1,13 @@
 ---
 import MainLayout from "../layouts/mainLayout.astro";
 const allPosts = await Astro.glob("../pages/posts/*.md");
+
+const sortedPosts = allPosts.sort((a, b) => {
+  return (
+    new Date(b.frontmatter.pubDate).getTime() -
+    new Date(a.frontmatter.pubDate).getTime()
+  );
+});
 ---
 
 <MainLayout title="Home" current_page="home">
@@ -77,7 +84,7 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
         </h2>
         <ul class="grid grid-cols-1 gap-6 bg-base-100 lg:grid-cols-2">
           {
-            allPosts.map((post) => (
+            sortedPosts.map((post) => (
               <li class="card mb-4 w-full bg-neutral p-4">
                 <a
                   href={post.url}
