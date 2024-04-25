@@ -1,0 +1,51 @@
+---
+const clients = [
+  {
+    name: "Carigo Automotive Detailing",
+    logo: "/carigo-dark.svg",
+    url: "https://carigo.ca",
+  },
+  //   { name: "Temple Medicinal Inc", logo: "/temple-logo.png", url: "https://templemedicinal.com/" },
+];
+---
+
+<!-- Client List Component -->
+<div class="clients-list">
+  {
+    clients.map((client) => (
+      <a
+        href={client.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="client"
+      >
+        <img
+          src={client.logo}
+          alt={`Logo of ${client.name}`}
+          class="client-logo"
+        />
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .clients-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  .client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    text-decoration: none;
+  }
+  .client-logo {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 8px;
+  }
+</style>

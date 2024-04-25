@@ -4,7 +4,12 @@ import MainLayout from "./mainLayout.astro";
 const { frontmatter, title, current_page } = Astro.props;
 ---
 
-<MainLayout title={frontmatter.title} current_page="blog" description={frontmatter.description} url=`posts/${frontmatter.slug}`>
+<MainLayout
+  title={frontmatter.title}
+  current_page="blog"
+  description={frontmatter.description}
+  url=`posts/${frontmatter.slug}`
+>
   <div class="mx-auto mb-10 p-6">
     <div
       class="prose prose-sm max-w-none text-center sm:prose lg:prose-lg xl:prose-xl prose-h1:mb-4 prose-p:my-2 lg:text-left"
