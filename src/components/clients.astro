@@ -1,11 +1,15 @@
 ---
+import { Image } from "astro:assets";
+import CarigoLogo from "../images/carigo-dark.svg";
+import TempleLogo from "../images/temple-logo.png";
+
 const clients = [
   {
     name: "Carigo Automotive Detailing",
-    logo: "/carigo-dark.svg",
+    logo: CarigoLogo,
     url: "https://carigo.ca",
   },
-  // { name: "Temple Medicinal Inc", logo: "/temple-logo.png", url: "https://templemedicinal.com/" },
+  // { name: "Temple Medicinal Inc", logo: TempoleLogo, url: "https://templemedicinal.com/" },
 ];
 ---
 
@@ -19,10 +23,11 @@ const clients = [
         rel="noopener noreferrer"
         class="client group"
       >
-        <img
+        <Image
           src={client.logo}
           alt={`Logo of ${client.name}`}
           class="client-logo"
+          loading="eager"
         />
         <p class="font-bold text-neutral-content opacity-0 group-hover:opacity-50">
           {client.name}

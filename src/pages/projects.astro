@@ -1,7 +1,8 @@
 ---
 import MainLayout from "../layouts/mainLayout.astro";
 import { Image } from "astro:assets";
-import ChunkVaultBanner from "../images/chunkvaultbanner.jpg";
+import RuriteBanner from "../images/rurite-banner.jpg";
+import ChunkVaultBanner from "../images/chunkvault-banner.jpg";
 ---
 
 <MainLayout title="Projects" current_page="projects">
@@ -9,12 +10,37 @@ import ChunkVaultBanner from "../images/chunkvaultbanner.jpg";
     <h1 class="border-l-4 border-primary pl-2 text-2xl font-semibold">
       Our Projects
     </h1>
-    <ul class="flex grid-cols-2 flex-col lg:grid">
+    <ul class="flex grid-cols-2 flex-col gap-4 lg:grid">
+      <li class="card bg-neutral">
+        <figure>
+          <Image
+            src={RuriteBanner}
+            alt="Rurite an open-source note taking application."
+            loading="eager"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title -my-4">Rurite - Secure Note Taking</h2>
+          <div class="divider"></div>
+          <p>
+            Rurite is an open source, cross-platform note-taking application
+            built with Tauri & SvelteKit. Developed as a passion project, it
+            enables seamless syncing of notes across multiple devices.
+          </p>
+          <div class="card-actions justify-end">
+            <a href="https://rurite.app" target="_blank" class="btn btn-primary"
+              >See More</a
+            >
+          </div>
+        </div>
+      </li>
+
       <li class="card bg-neutral">
         <figure>
           <Image
             src={ChunkVaultBanner}
             alt="ChunkVault a minecraft world backup and viewing tool."
+            loading="eager"
           />
         </figure>
         <div class="card-body">
