@@ -12,11 +12,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^10.0.2",
-    "@astrojs/mdx": "^2.3.1",
-    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/cloudflare": "^12.3.0",
+    "@astrojs/mdx": "^4.2.1",
+    "@astrojs/tailwind": "^6.0.1",
     "@fullhuman/postcss-purgecss": "^5.0.0",
-    "astro": "^4.5.16",
+    "astro": "^5.5.4",
     "astro-icon": "^0.8.1",
     "postcss-custom-properties": "^13.3.2",
     "postcss-import": "^15.1.0",
