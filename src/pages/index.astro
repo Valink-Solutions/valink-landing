@@ -1,6 +1,8 @@
 ---
 import MainLayout from "../layouts/mainLayout.astro";
-const allPosts = await Astro.glob("../pages/posts/*.mdx");
+import type { CollectionEntry } from 'astro:content';
+
+const allPosts = Object.values(import.meta.glob("../pages/posts/*.mdx", { eager: true })) as CollectionEntry<'posts'>[];
 
 const sortedPosts = allPosts.sort((a, b) => {
   return (
@@ -11,7 +13,7 @@ const sortedPosts = allPosts.sort((a, b) => {
 ---
 
 <MainLayout title="Home" current_page="home">
-  <div class="container mx-auto flex flex-col gap-4 bg-base-100 p-4">
+  <div class="container mx-auto flex flex-col gap-4 p-4">
     <!-- About Section -->
     <section id="about" class="">
       <div class="container mx-auto">
@@ -77,15 +79,15 @@ const sortedPosts = allPosts.sort((a, b) => {
     </section>
 
     <!-- Blog Section -->
-    <section id="blog" class="flex-grow bg-base-100">
-      <div class="container mx-auto bg-base-100">
+    <section id="blog" class="grow">
+      <div class="container mx-auto">
         <h2 class="mb-4 border-l-4 border-primary pl-2 text-2xl font-bold">
           Blog Posts
         </h2>
-        <ul class="grid grid-cols-1 gap-6 bg-base-100 lg:grid-cols-2">
+        <ul class="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {
             sortedPosts.map((post) => (
-              <li class="card mb-4 w-full bg-neutral p-4">
+              <li class="card card-border mb-4 w-full p-4">
                 <a
                   href={post.url}
                   class="no-underline"

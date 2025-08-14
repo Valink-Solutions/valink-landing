@@ -1,12 +1,14 @@
 ---
 import { Image } from "astro:assets";
-import CarigoLogo from "../images/carigo-dark.svg";
+import DarkCarigoLogo from "../images/carigo-dark.svg";
+import LightCarigoLogo from "../images/carigo-light.svg";
 import TempleLogo from "../images/temple-logo.png";
 
 const clients = [
   {
     name: "Carigo Automotive Detailing",
-    logo: CarigoLogo,
+    logo: LightCarigoLogo,
+    logo_dark: DarkCarigoLogo,
     url: "https://carigo.ca",
   },
   // { name: "Temple Medicinal Inc", logo: TempoleLogo, url: "https://templemedicinal.com/" },
@@ -14,7 +16,7 @@ const clients = [
 ---
 
 <!-- Client List Component -->
-<div class="clients-list rounded-box bg-neutral">
+<div class="clients-list rounded-box bg-base-200">
   {
     clients.map((client) => (
       <a
@@ -26,7 +28,13 @@ const clients = [
         <Image
           src={client.logo}
           alt={`Logo of ${client.name}`}
-          class="client-logo"
+          class="client-logo hidden dark:block"
+          loading="eager"
+        />
+        <Image
+          src={client.logo_dark}
+          alt={`Logo of ${client.name}`}
+          class="client-logo block dark:hidden"
           loading="eager"
         />
         <p class="font-bold text-neutral-content opacity-0 group-hover:opacity-50">

@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: #f3f6fa;
+  --color-base-200: #e9ecf2;
+  --color-base-300: #cfd4db;
+  --color-base-content: #231f20;
+  --color-primary: #8a69d4;
+  --color-primary-content: #231f20;
+  --color-secondary: #f469db;
+  --color-secondary-content: #231f20;
+  --color-accent: #a9ee8a;
+  --color-accent-content: #231f20;
+  --color-neutral: #231f20;
+  --color-neutral-content: #e3e7f5;
+  --color-info: oklch(60% 0.126 221.723);
+  --color-info-content: #231f20;
+  --color-success: oklch(62% 0.194 149.214);
+  --color-success-content: #231f20;
+  --color-warning: oklch(85% 0.199 91.936);
+  --color-warning-content: oklch(0% 0 0);
+  --color-error: oklch(70% 0.191 22.216);
+  --color-error-content: oklch(0% 0 0);
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+  --size-selector: 0.28125rem;
+  --size-field: 0.28125rem;
+  --border: 2px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: #232325;
+  --color-base-200: #18181a;
+  --color-base-300: #101012;
+  --color-base-content: #e3e7f5;
+  --color-primary: #8a69d4;
+  --color-primary-content: #231f20;
+  --color-secondary: #f469db;
+  --color-secondary-content: #231f20;
+  --color-accent: #a9ee8a;
+  --color-accent-content: #231f20;
+  --color-neutral: #e3e7f5;
+  --color-neutral-content: #2d2a29;
+  --color-info: oklch(60% 0.126 221.723);
+  --color-info-content: #231f20;
+  --color-success: oklch(62% 0.194 149.214);
+  --color-success-content: #231f20;
+  --color-warning: oklch(85% 0.199 91.936);
+  --color-warning-content: oklch(0% 0 0);
+  --color-error: oklch(70% 0.191 22.216);
+  --color-error-content: oklch(0% 0 0);
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+  --size-selector: 0.28125rem;
+  --size-field: 0.28125rem;
+  --border: 2px;
+  --depth: 0;
+  --noise: 0;
+}
+
+.card {
+  @apply bg-base-200;
+}
+
+.card figure {
+  @apply rounded-t-xs;
+}

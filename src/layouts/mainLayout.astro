@@ -1,27 +1,12 @@
 ---
 import Header from "../components/header.astro";
-import "../styles/global.postcss";
-import { Sprite } from "astro-icon";
+import "../styles/global.css";
 
 const { title, current_page, description = null, url = "" } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <script is:inline>
-      // ☝️ This script prevent the FART effect.
-      if (localStorage.getItem("theme") === null) {
-        document.documentElement.setAttribute("data-theme", "light");
-      } else
-        document.documentElement.setAttribute(
-          "data-theme",
-          localStorage.getItem("theme")
-        );
-    </script>
-    <script>
-      import { themeChange } from "theme-change";
-      themeChange();
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Valink Solutions | {title}</title>
@@ -29,7 +14,7 @@ const { title, current_page, description = null, url = "" } = Astro.props;
     <meta
       name="description"
       content={description ||
-        "Valink Solutions: Fusing Tradition with Innovation for Empowered Communities. We bring cutting-edge technology and critical infrastructure to Indigenous communities while preserving cultural heritage. Our mission includes education in IT and cybersecurity and advocating for the integration of traditional medicine. Join us in advancing technology with respect for tradition."}
+        "Valink Solutions: Fusing Tradition With Innovation To Empower Communities. We bring cutting-edge technology and critical infrastructure to Indigenous communities while preserving cultural heritage. Our mission includes education in IT and cybersecurity and advocating for the integration of traditional medicine. Join us in advancing technology with respect for tradition."}
     />
 
     <!-- Facebook Meta Tags -->
@@ -39,7 +24,7 @@ const { title, current_page, description = null, url = "" } = Astro.props;
     <meta
       property="og:description"
       content={description ||
-        "Valink Solutions: Fusing Tradition with Innovation for Empowered Communities. We bring cutting-edge technology and critical infrastructure to Indigenous communities while preserving cultural heritage. Our mission includes education in IT and cybersecurity and advocating for the integration of traditional medicine. Join us in advancing technology with respect for tradition."}
+        "Valink Solutions: Fusing Tradition With Innovation To Empower Communities. We bring cutting-edge technology and critical infrastructure to Indigenous communities while preserving cultural heritage. Our mission includes education in IT and cybersecurity and advocating for the integration of traditional medicine. Join us in advancing technology with respect for tradition."}
     />
     <meta
       property="og:image"
@@ -54,41 +39,43 @@ const { title, current_page, description = null, url = "" } = Astro.props;
     <meta
       name="twitter:description"
       content={description ||
-        "Valink Solutions: Fusing Tradition with Innovation for Empowered Communities. We bring cutting-edge technology and critical infrastructure to Indigenous communities while preserving cultural heritage. Our mission includes education in IT and cybersecurity and advocating for the integration of traditional medicine. Join us in advancing technology with respect for tradition."}
+        "Valink Solutions: Fusing Tradition With Innovation To Empower Communities. We bring cutting-edge technology and critical infrastructure to Indigenous communities while preserving cultural heritage. Our mission includes education in IT and cybersecurity and advocating for the integration of traditional medicine. Join us in advancing technology with respect for tradition."}
     />
     <meta
       name="twitter:image"
       content={description ||
-        "Valink Solutions: Fusing Tradition with Innovation for Empowered Communities. We bring cutting-edge technology and critical infrastructure to Indigenous communities while preserving cultural heritage. Our mission includes education in IT and cybersecurity and advocating for the integration of traditional medicine. Join us in advancing technology with respect for tradition."}
+        "Valink Solutions: Fusing Tradition With Innovation To Empower Communities. We bring cutting-edge technology and critical infrastructure to Indigenous communities while preserving cultural heritage. Our mission includes education in IT and cybersecurity and advocating for the integration of traditional medicine. Join us in advancing technology with respect for tradition."}
     />
-    <script defer src="https://umami.valink.io/script.js" data-website-id="e1627cb2-44ea-469c-bb5d-0296dae481b2"></script>
+    <script
+      defer
+      src="https://stats.valink.io/script.js"
+      data-website-id="e1627cb2-44ea-469c-bb5d-0296dae481b2"
+    ></script>
   </head>
-  <body class="flex h-screen flex-col bg-base-100">
-    <Sprite.Provider>
-      <!-- Header Section -->
-      <Header current_page={current_page} />
+  <body class="flex h-screen flex-col container mx-auto m:max-w-[85%]">
+    <!-- Header Section -->
+    <Header current_page={current_page} />
 
-      <div class="flex flex-grow flex-col bg-base-100 text-base-content">
-        <slot />
-      </div>
+    <div class="flex grow flex-col text-base-content">
+      <slot />
+    </div>
 
-      <!-- Footer Section -->
-      <footer class="bg-base-100 p-4 text-base-content">
-        <div
-          class="container mx-auto flex flex-col-reverse items-center justify-between gap-4 lg:flex-row"
+    <!-- Footer Section -->
+    <footer class="p-4 text-base-content">
+      <div
+        class="container mx-auto flex flex-col-reverse items-center justify-between gap-4 lg:flex-row"
+      >
+        <blockquote
+          class="order-1 flex-1 text-center opacity-75 lg:order-2 lg:text-right"
         >
-          <blockquote
-            class="order-1 flex-1 text-center opacity-75 lg:order-2 lg:text-right"
-          >
-            <p class="font-bold italic">
-              "Fusing Tradition with Innovation for Empowered Communities"
-            </p>
-          </blockquote>
-          <p class="flex-1 text-center lg:order-1 lg:mt-0 lg:text-left">
-            © {new Date().getFullYear()} Valink Solutions Ltd. All rights reserved.
+          <p class="font-bold italic">
+            "Fusing Tradition With Innovation To Empower Communities"
           </p>
-        </div>
-      </footer>
-    </Sprite.Provider>
+        </blockquote>
+        <p class="flex-1 text-center lg:order-1 lg:mt-0 lg:text-left">
+          © {new Date().getFullYear()} Valink Solutions Ltd. All rights reserved.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

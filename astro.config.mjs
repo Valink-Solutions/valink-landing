@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
-
-import tailwind from "@astrojs/tailwind";
-import autoprefixer from "autoprefixer";
+import tailwindcss from "@tailwindcss/vite";
+import icon from "astro-icon";
 
 // https://astro.build/config
 // import cloudflare from "@astrojs/cloudflare";
@@ -11,18 +10,9 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    mdx(),
-  ],
+  integrations: [mdx(), icon()],
   vite: {
-    postcss: {
-      plugins: [
-        autoprefixer({}), // add options if needed
-      ],
-    },
+    plugins: [tailwindcss()],
   },
   // output: "server",
   // adapter: cloudflare()
